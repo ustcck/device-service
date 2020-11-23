@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+
+    <!--
+        Added the entity Threshold.
+    -->
+    <changeSet id="20201120014850-1" author="caokai2">
+        <createTable tableName="threshold">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="low_limit" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="high_limit" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="open_close_indicator" type="integer">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="20201120014850-1-relations" author="caokai2">
+
+    </changeSet>
+    <changeSet id="20201120014850-1-data" author="caokai2" context="faker">
+        <loadData
+                  file="liquibase/fake-data/threshold.csv"
+                  separator=";"
+                  tableName="threshold">
+            <column name="id" type="numeric"/>
+            <column name="low_limit" type="numeric"/>
+            <column name="high_limit" type="numeric"/>
+            <column name="open_close_indicator" type="numeric"/>
+        </loadData>
+    </changeSet>
+
+</databaseChangeLog>

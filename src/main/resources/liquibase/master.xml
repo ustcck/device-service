@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <include file="liquibase/changelog/20201120014650_added_entity_PatrolDevice.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120014750_added_entity_PowerDevice.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120014850_added_entity_Threshold.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120014950_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120015050_added_entity_Address.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120014650_added_entity_constraints_PatrolDevice.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120014750_added_entity_constraints_PowerDevice.xml" relativeToChangelogFile="false"/>
+    <include file="liquibase/changelog/20201120015050_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
+</databaseChangeLog>

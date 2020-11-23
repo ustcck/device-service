@@ -1,0 +1,39 @@
+logging:
+  level:
+    ROOT: DEBUG
+    io.github.jhipster: DEBUG
+    com.lenovo.cloud.device: DEBUG
+
+spring:
+  profiles:
+    active: dev
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://10.4.64.123:3306/device_service_ustcck?useSSL=false&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true&useUnicode=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&characterEncoding=UTF-8
+    username: root
+    password: Password@1
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+#  jpa:
+#    show-sql: true
+
+server:
+  port: 8083
+
+jhipster:
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allow-credentials: true
+    max-age: 1800

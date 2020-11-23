@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: device-service
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+clientApp:
+  name: 'device-service'
