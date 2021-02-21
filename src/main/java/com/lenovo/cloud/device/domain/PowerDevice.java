@@ -1,9 +1,11 @@
 package com.lenovo.cloud.device.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "power_device")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PowerDevice implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -374,24 +377,24 @@ public class PowerDevice implements Serializable {
     @Override
     public String toString() {
         return "PowerDevice{" +
-            "id=" + getId() +
-            ", area=" + getArea() +
-            ", space='" + getSpace() + "'" +
-            ", mainPart='" + getMainPart() + "'" +
-            ", subPart='" + getSubPart() + "'" +
-            ", name='" + getName() + "'" +
-            ", recognizeType=" + getRecognizeType() +
-            ", recognizeContent=" + getRecognizeContent() +
-            ", site='" + getSite() + "'" +
-            ", line='" + getLine() + "'" +
-            ", source='" + getSource() + "'" +
-            ", serialNumber='" + getSerialNumber() + "'" +
-            ", installDate='" + getInstallDate() + "'" +
-            ", status=" + getStatus() +
-            ", deviceModel='" + getDeviceModel() + "'" +
-            ", createTime='" + getCreateTime() + "'" +
-            ", updateTime='" + getUpdateTime() + "'" +
-            ", remark='" + getRemark() + "'" +
-            "}";
+                "id=" + getId() +
+                ", area=" + getArea() +
+                ", space='" + getSpace() + "'" +
+                ", mainPart='" + getMainPart() + "'" +
+                ", subPart='" + getSubPart() + "'" +
+                ", name='" + getName() + "'" +
+                ", recognizeType=" + getRecognizeType() +
+                ", recognizeContent=" + getRecognizeContent() +
+                ", site='" + getSite() + "'" +
+                ", line='" + getLine() + "'" +
+                ", source='" + getSource() + "'" +
+                ", serialNumber='" + getSerialNumber() + "'" +
+                ", installDate='" + getInstallDate() + "'" +
+                ", status=" + getStatus() +
+                ", deviceModel='" + getDeviceModel() + "'" +
+                ", createTime='" + getCreateTime() + "'" +
+                ", updateTime='" + getUpdateTime() + "'" +
+                ", remark='" + getRemark() + "'" +
+                "}";
     }
 }

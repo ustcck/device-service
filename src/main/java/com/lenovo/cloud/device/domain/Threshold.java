@@ -1,6 +1,9 @@
 package com.lenovo.cloud.device.domain;
 
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -9,6 +12,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "threshold")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Threshold implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -93,10 +97,10 @@ public class Threshold implements Serializable {
     @Override
     public String toString() {
         return "Threshold{" +
-            "id=" + getId() +
-            ", lowLimit=" + getLowLimit() +
-            ", highLimit=" + getHighLimit() +
-            ", openCloseIndicator=" + getOpenCloseIndicator() +
-            "}";
+                "id=" + getId() +
+                ", lowLimit=" + getLowLimit() +
+                ", highLimit=" + getHighLimit() +
+                ", openCloseIndicator=" + getOpenCloseIndicator() +
+                "}";
     }
 }

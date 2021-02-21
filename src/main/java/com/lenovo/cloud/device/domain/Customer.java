@@ -1,6 +1,9 @@
 package com.lenovo.cloud.device.domain;
 
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -11,6 +14,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "customer")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -139,11 +143,11 @@ public class Customer implements Serializable {
     @Override
     public String toString() {
         return "Customer{" +
-            "id=" + getId() +
-            ", firstName='" + getFirstName() + "'" +
-            ", lastName='" + getLastName() + "'" +
-            ", email='" + getEmail() + "'" +
-            ", telephone='" + getTelephone() + "'" +
-            "}";
+                "id=" + getId() +
+                ", firstName='" + getFirstName() + "'" +
+                ", lastName='" + getLastName() + "'" +
+                ", email='" + getEmail() + "'" +
+                ", telephone='" + getTelephone() + "'" +
+                "}";
     }
 }

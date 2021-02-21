@@ -1,8 +1,11 @@
 package com.lenovo.cloud.device.domain;
 
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -13,6 +16,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "patrol_device")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class PatrolDevice implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -54,8 +58,8 @@ public class PatrolDevice implements Serializable {
 
     @ManyToMany
     @JoinTable(name = "patrol_device_power_device",
-               joinColumns = @JoinColumn(name = "patrol_device_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "power_device_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "patrol_device_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "power_device_id", referencedColumnName = "id"))
     private Set<PowerDevice> powerDevices = new HashSet<>();
 
     public Long getId() {
@@ -228,16 +232,16 @@ public class PatrolDevice implements Serializable {
     @Override
     public String toString() {
         return "PatrolDevice{" +
-            "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", source='" + getSource() + "'" +
-            ", serialNumber='" + getSerialNumber() + "'" +
-            ", installDate='" + getInstallDate() + "'" +
-            ", status=" + getStatus() +
-            ", deviceModel='" + getDeviceModel() + "'" +
-            ", createTime='" + getCreateTime() + "'" +
-            ", updateTime='" + getUpdateTime() + "'" +
-            ", remark='" + getRemark() + "'" +
-            "}";
+                "id=" + getId() +
+                ", name='" + getName() + "'" +
+                ", source='" + getSource() + "'" +
+                ", serialNumber='" + getSerialNumber() + "'" +
+                ", installDate='" + getInstallDate() + "'" +
+                ", status=" + getStatus() +
+                ", deviceModel='" + getDeviceModel() + "'" +
+                ", createTime='" + getCreateTime() + "'" +
+                ", updateTime='" + getUpdateTime() + "'" +
+                ", remark='" + getRemark() + "'" +
+                "}";
     }
 }

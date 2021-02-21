@@ -1,9 +1,12 @@
 package com.lenovo.cloud.device.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -11,6 +14,7 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "address")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Address implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -148,12 +152,12 @@ public class Address implements Serializable {
     @Override
     public String toString() {
         return "Address{" +
-            "id=" + getId() +
-            ", address1='" + getAddress1() + "'" +
-            ", address2='" + getAddress2() + "'" +
-            ", city='" + getCity() + "'" +
-            ", postcode='" + getPostcode() + "'" +
-            ", country='" + getCountry() + "'" +
-            "}";
+                "id=" + getId() +
+                ", address1='" + getAddress1() + "'" +
+                ", address2='" + getAddress2() + "'" +
+                ", city='" + getCity() + "'" +
+                ", postcode='" + getPostcode() + "'" +
+                ", country='" + getCountry() + "'" +
+                "}";
     }
 }
